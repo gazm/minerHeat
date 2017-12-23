@@ -1,14 +1,9 @@
 //const express = require('express');
 //const app = express();
 
-const config = require('./config.json');
 const timer = require('schedule').every;
+
 const NestApi = require('nest-api');
-const fs = require('fs');
-
-const user = config.login.username
-const pass = config.login.password
-
 const nestApi = new NestApi('gorgazm@gmail.com', 'Jordan@2010');
 
 const spawn = require('child_process').spawn;
@@ -40,13 +35,13 @@ function startMiner() {
 }
 
 	function kill() {
-	  spawn("taskkill", ["/pid", minerProcess.pid, '/t', '/f'])
+	  spawn("taskkill", ["/pid", minerProcess.pid, '/t'])
 	}
 
 //Start Miner
 startMiner();
 
-timer('10s').do(function() {
+timer('5m').do(function() {
   nestApi.login(function(data) {
     nestApi.get(function(data, err) {
       if (err) throw err;
