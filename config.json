@@ -2,5 +2,9 @@
   "login": {
     "username": "gorgazm@gmail.com",
     "password": "Jordan@2010"
+  },
+  "temps": {
+    "shut_off": 22.7778,
+    "low_overdrive": 19.4444
   }
 }
